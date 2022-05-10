@@ -105,3 +105,7 @@ dist
 
 # Configuración de Visual Studio Code
 .vscode
+
+#Configuración para archivos no binarios
+.png
+.jpg
