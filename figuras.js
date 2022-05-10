@@ -33,11 +33,12 @@ function areaCirculo(radio) {
 //Cuadrado
 
 function calcularperimetroCuadrado() {
+
     const input = document.getElementById("InputCuadrado");
     const value = input.value;
     console.log(value);
     const perimetro = perimetroCuadrado(value);
-    alert(perimetro);
+    alert("El perímetro del cuadrado es igual a " + perimetro);
 }
 
 function calcularareaCuadrado() {
@@ -45,7 +46,7 @@ function calcularareaCuadrado() {
     const value = input.value;
     
     const area = areaCuadrado(value);
-    alert(area);
+    alert("El área del cuadrado es igual a " + area);
 }
 
 //Funcion para realizar los calculos con el triangulo.
@@ -63,7 +64,7 @@ function calcularperimetroTriangulo() { //En esta primera vamos a calcular el pe
 
     if (valor1 == valor2){
         const perimetro = perimetroTriangulo(valor1,valor2,valor3);
-        alert(perimetro);
+        alert("El perímetro del triangulo es " + perimetro);
     }else {
         alert("Este no es un trianguelo isoceles, recuerde, el triangulo ddebe tener los dos lados del mismo valor");
     }
@@ -79,11 +80,26 @@ function calcularareaTriangulo() {
     const valor2 = input2.value;
     const valor3 = input3.value;
 
-    if (valor1 == valor2){ //Se declara condicional para verificar si es triangulo isoceles.
+    if (valor1 == valor2) { //Se declara el primer condicional para verificar si es triangulo isoceles.
+
         const altura = (Math.sqrt(Math.pow(valor1, 2) + Math.pow(valor3 / 2, 2))).toFixed(3); //Se aplica teorema de pitagoras para hallar altura, se configura a 3 decimales.
         const area = areaTriangulo(valor1,valor3).toFixed(3); //teniendo los valores, internamente se halla la altura, y se calcula el área.
         alert("La altura del triangulo es " + altura + " y la el área es: " + area);
-    }else {
-        alert("Este no es un trianguelo isoceles, recuerde, el triangulo ddebe tener los dos lados del mismo valor");
+    
+    }else if (valor1 == valor3) { //Se declara el segundo condicional para verificar si es triangulo isoceles.
+
+        const altura = (Math.sqrt(Math.pow(valor1, 2) + Math.pow(valor2 / 2, 2))).toFixed(3); //Se aplica teorema de pitagoras para hallar altura, se configura a 3 decimales.
+        const area = areaTriangulo(valor1,valor2).toFixed(3); //teniendo los valores, internamente se halla la altura, y se calcula el área.
+        alert("La altura del triangulo es " + altura + " y la el área es: " + area);
+        
+    }else if (valor2 == valor3) { //Se declara el tercer condicional para verificar si es triangulo isoceles.
+
+        const altura = (Math.sqrt(Math.pow(valor3, 2) + Math.pow(valor2 / 2, 2))).toFixed(3); //Se aplica teorema de pitagoras para hallar altura, se configura a 3 decimales.
+        const area = areaTriangulo(valor3,valor2).toFixed(3); //teniendo los valores, internamente se halla la altura, y se calcula el área.
+        alert("La altura del triangulo es " + altura + " y la el área es: " + area);
+    
+    } else {
+
+        alert("Este no es un trianguelo isoceles, recuerde, el triangulo debe tener los dos lados del mismo valor");
     }
 }
