@@ -17,6 +17,18 @@
             display: flex;
             flex-direction: column;
         }
+        .triangulo {
+            display: flex;
+            flex-direction: column;
+        }
+        .triangulo input{
+            width: 120px;
+            background: grey;
+            color: white;
+        }
+        ::placeholder {
+            color: #FAF0E6;
+        }
         /* .pericua {
             width: 100px;
             position: relative;
@@ -66,10 +78,10 @@
             <label for="InputTriangulo">
                 Escribe cuánto mide cada lado de tu triangulo.
             </label>
-            <div>
-                <input id="InputTrianguloLado1" type="number"/>
-                <input id="InputTrianguloLado2" type="number"/>
-                <input id="InputTrianguloBase" type="number"/>
+            <div class="triangulo">
+                <input id="InputTrianguloLado1" type="number" placeholder="Lado 1 Triangulo"/>
+                <input id="InputTrianguloLado2" type="number" placeholder="Lado 2 Triangulo"/>
+                <input id="InputTrianguloBase" type="number" placeholder="Base Triangulo"/>
             </div>
             <button type="button" onclick="calcularperimetroTriangulo()" class="pericua">
                 Calcular el perímetro

@@ -1,8 +1,4 @@
-//Código del cuadrado
-
-console.group("Cuadrados");
-
-// const ladoCuadrado = 5;
+//Código del cuadrado, se declaran las funciones para calculo de perímetro y área del cuadrado.
 
 function perimetroCuadrado(lado) {
     return lado * 4;
@@ -12,46 +8,26 @@ function areaCuadrado(lado) {
     return lado * lado;
 }
 
-
-console.groupEnd();
-
-// Código del triángulo
-
-console.group("Triangulos");
-
-// const ladoTriangulo1 = 6;
-// const ladoTriangulo2 = 6;
-// const ladobase = 4;
-// const alturaTriangulo = Math.sqrt(Math.pow(ladoTriangulo1, 2) + Math.pow(ladobase / 2, 2));
+// Código del triángulo, se declaran las funciones para calculo de perímetro y área del cuadrado.
 
 function perimetroTriangulo(lado1, lado2, base) {
-    return Number(lado1 + lado2 + base);
+    return (Number(lado1) + Number(lado2) + Number(base)); //Se transforma cada valor en número con comando "Number", dado que JS reconoce como string el valor de los números.
 }
 
-//Funcion para triangulo isoceles.
+//Funcion para triangulo isoceles. Si el triangulo no es isoceles, no se puede aplicar está función.
 function areaTriangulo(lado,base) {
     return ((Math.sqrt(Math.pow(lado, 2) + Math.pow(base / 2, 2))) * base) / 2;
 }
 
-console.groupEnd();
+// Código del circulo, se declaran las funciones para calculo de perímetro y área del circulo.
 
-// Código del ciruclo
-
-console.group("Circulos");
-
-// const radiocirculo = 4;
-// const diametroCirculo = radiocirculo * 2;
-// const PI = Math.PI;
-
-function perimetroCirculo(radio) {
+function perimetroCirculo(radio) { 
     return Math.PI * radio * 2;
 }
 
 function areaCirculo(radio) {
     return Math.PI * Math.pow(radio , 2);
 }
-
-console.groupEnd();
 
 //Aquí interactuamos con HTML
 //Cuadrado
@@ -72,9 +48,28 @@ function calcularareaCuadrado() {
     alert(area);
 }
 
-//Triangulo
+//Funcion para realizar los calculos con el triangulo.
 
-function calcularperimetroTriangulo() {
+
+function calcularperimetroTriangulo() { //En esta primera vamos a calcular el perimetro del triangulo.
+    
+    const input1 = document.getElementById("InputTrianguloLado1");
+    const input2 = document.getElementById("InputTrianguloLado2");
+    const input3 = document.getElementById("InputTrianguloBase");
+    
+    const valor1 = input1.value;
+    const valor2 = input2.value;
+    const valor3 = input3.value;
+
+    if (valor1 == valor2){
+        const perimetro = perimetroTriangulo(valor1,valor2,valor3);
+        alert(perimetro);
+    }else {
+        alert("Este no es un trianguelo isoceles, recuerde, el triangulo ddebe tener los dos lados del mismo valor");
+    }
+}
+
+function calcularareaTriangulo() {
 
     const input1 = document.getElementById("InputTrianguloLado1");
     const input2 = document.getElementById("InputTrianguloLado2");
@@ -83,21 +78,12 @@ function calcularperimetroTriangulo() {
     const valor1 = input1.value;
     const valor2 = input2.value;
     const valor3 = input3.value;
-    
-    const perimetro = perimetroTriangulo(valor1,valor2,valor3);
-    alert(perimetro);
+
+    if (valor1 == valor2){ //Se declara condicional para verificar si es triangulo isoceles.
+        const altura = (Math.sqrt(Math.pow(valor1, 2) + Math.pow(valor3 / 2, 2))).toFixed(3); //Se aplica teorema de pitagoras para hallar altura, se configura a 3 decimales.
+        const area = areaTriangulo(valor1,valor3).toFixed(3); //teniendo los valores, internamente se halla la altura, y se calcula el área.
+        alert("La altura del triangulo es " + altura + " y la el área es: " + area);
+    }else {
+        alert("Este no es un trianguelo isoceles, recuerde, el triangulo ddebe tener los dos lados del mismo valor");
+    }
 }
-
-// function calcularareaTriangulo() {
-
-//     const input1 = document.getElementById("InputTrianguloLado1");
-//     const input2 = document.getElementById("InputTrianguloLado2");
-//     const input3 = document.getElementById("InputTrianguloBase");
-    
-//     const value = input.value;
-    
-//     const area = areaTriangulo(value);
-//     alert(area);
-// }
-
-//Circulo
