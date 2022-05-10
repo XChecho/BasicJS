@@ -5,12 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Figuras geométricas | Curso práctico en JS</title>
+    <style>
+        /* input{
+            width: 50px;
+            color: #F08080;
+            background: #780404;
+            border-radius: 25px;
+        } */
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+        /* .pericua {
+            width: 100px;
+            position: relative;
+            font-weight: bold;
+            background-color: #F08080;
+            color: #780404;
+            border-radius: 10px;
+            border-color: #FFA07A;
+            border-width: 1px;
+        }
+        .arecua {
+            width: 100px;
+            font-weight: bold;
+            position: relative;
+            background-color: #F08080;
+            color: #780404;
+            border-radius: 10px;
+            border-color: #FFA07A;
+            border-width: 1px;
+        } */
+    </style>
 </head>
 <body>
-    <h1>
-        Figuras geométricas.
-    </h1>
+    <header>
+        <h1>
+            Figuras geométricas.
+        </h1>
+        <p>Este es el primer talles del curso práctico de JavaScript</p>
+    </header>
 
+    <section>
+        <h2>Calcula el área y perímetro de un cuadrado</h2>
+        <form class="form">
+            <label for="InputCuadrado">
+                Escribe cuánto mide cada lado de tu cuadrado.
+            </label>
+            <input id="InputCuadrado" type="number"/>
+            <button type="button" onclick="calcularperimetroCuadrado()" class="pericua">
+                Calcular el perímetro
+            </button>
+            <button type="button" onclick="calcularareaCuadrado()" class="arecua">
+                Calcular el área
+            </button>
+        </form>
+
+        <form class="form">
+            <label for="InputTriangulo">
+                Escribe cuánto mide cada lado de tu triangulo.
+            </label>
+            <div>
+                <input id="InputTrianguloLado1" type="number"/>
+                <input id="InputTrianguloLado2" type="number"/>
+                <input id="InputTrianguloBase" type="number"/>
+            </div>
+            <button type="button" onclick="calcularperimetroTriangulo()" class="pericua">
+                Calcular el perímetro
+            </button>
+            <button type="button" onclick="calcularareaTriangulo()" class="arecua">
+                Calcular el área
+            </button>
+        </form>
+
+    </section>
     <script src="figuras.js"></script>
+
 </body>
 </html>

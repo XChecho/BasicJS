@@ -24,8 +24,8 @@ console.group("Triangulos");
 // const ladobase = 4;
 // const alturaTriangulo = Math.sqrt(Math.pow(ladoTriangulo1, 2) + Math.pow(ladobase / 2, 2));
 
-function perimetroTriangulo(lado1, lado2,base) {
- return lado1 + lado2 + base;
+function perimetroTriangulo(lado1, lado2, base) {
+    return Number(lado1 + lado2 + base);
 }
 
 //Funcion para triangulo isoceles.
@@ -52,3 +52,52 @@ function areaCirculo(radio) {
 }
 
 console.groupEnd();
+
+//Aquí interactuamos con HTML
+//Cuadrado
+
+function calcularperimetroCuadrado() {
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+    console.log(value);
+    const perimetro = perimetroCuadrado(value);
+    alert(perimetro);
+}
+
+function calcularareaCuadrado() {
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+    
+    const area = areaCuadrado(value);
+    alert(area);
+}
+
+//Triangulo
+
+function calcularperimetroTriangulo() {
+
+    const input1 = document.getElementById("InputTrianguloLado1");
+    const input2 = document.getElementById("InputTrianguloLado2");
+    const input3 = document.getElementById("InputTrianguloBase");
+    
+    const valor1 = input1.value;
+    const valor2 = input2.value;
+    const valor3 = input3.value;
+    
+    const perimetro = perimetroTriangulo(valor1,valor2,valor3);
+    alert(perimetro);
+}
+
+// function calcularareaTriangulo() {
+
+//     const input1 = document.getElementById("InputTrianguloLado1");
+//     const input2 = document.getElementById("InputTrianguloLado2");
+//     const input3 = document.getElementById("InputTrianguloBase");
+    
+//     const value = input.value;
+    
+//     const area = areaTriangulo(value);
+//     alert(area);
+// }
+
+//Circulo
